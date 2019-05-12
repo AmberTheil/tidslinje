@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Single</title>
+  </head>
+  <body>
+    <section id="single">
+      <div class="knappen">
+        <button class="knap" onclick="goBack()">Tilbage</button>
+      </div>
+
+      <section class="data-container">
+        <div class="left">
+          <div class="title-container">
+            <h1 class="data-title"></h1>
+          </div>
+          <div class="billede-container" id="link">
+            <img class="data-image" src="" alt="" />
+          </div>
+        </div>
+        <div class="right"></div>
+
+        <div class="langbeskrivelse-container">
+          <p class="data-langbeskrivelse"></p>
+        </div>
+        <div class="link-container">
+          <a href="" data-field="link">
+            Se det her
+          </a>
+        </div>
+      </section>
+
+      <script>
+        window.addEventListener("DOMContentLoaded", loadJSON);
+        const urlParams = new URLSearchParams(window.location.search);
+        const title = urlParams.get("title");
+
+        function loadJSON() {
+          fetch(
+            "https://www.rigmordesign.com/kea/portfolio/wordpress/wp-json/wp/v2/portfolie?per_page=100"
+          )
+            .then(response => response.json())
+            .then(myJson => {
+              console.log(myJson);
+              console.log("the json data is:");
+              myJson.forEach(obj => {
+                console.log(obj);
+
+                const dest = document.querySelector(".data-container");
+                if (obj.acf.title == title) {
+                  dest.querySelector(".data-title").textContent = obj.acf.title;
+                  dest.querySelector(".data-image").src = obj.acf.billede.url;
+                  dest.querySelector("[data-field='link']").href =
+                    obj.acf.link.url;
+                  dest.querySelector(".data-langbeskrivelse").textContent =
+                    obj.acf.langbeskrivelse;
+                }
+              });
+            });
+        }
+
+        function goBack() {
+          window.history.back();
+        }
+      </script>
+    </section>
+  </body>
+</html>

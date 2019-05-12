@@ -1,0 +1,228 @@
+body {
+  background-image: url("background.jpg");
+}
+
+.hidden {
+  display: none;
+}
+
+.svgplaceholder {
+  position: absolute;
+}
+
+.svgplaceholder {
+  margin-left: 1vw;
+  display: grid;
+}
+
+@media screen and (min-width: 580px) {
+  .svgplaceholder {
+    grid-gap: 4px;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(2, 2fr);
+  }
+}
+
+.svgplaceholder {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas: "title-container title-container title-container title-container" "image-container image-container director-container director-container" "image-container image-container year-container year-container";
+}
+
+.title-container {
+  margin-top: -1.5vw;
+  grid-area: title-container;
+}
+
+.billede-container {
+  grid-area: image-container;
+}
+
+.langbeskrivelse-container {
+  grid-area: director-container;
+}
+
+.link-container {
+  grid-area: year-container;
+}
+
+.cls-3 {
+  cursor: pointer;
+  z-index: 100;
+  border: 10px solid pink;
+}
+
+h1 {
+  font-size: 2.3em;
+  font-family: "Abel", sans-serif;
+}
+
+.svgplaceholder {
+  left: 172.149px;
+  margin-top: -2vh;
+  display: inline-block;
+  margin-left: 0.1vw;
+  margin-right: 10vw;
+  padding-bottom: 7vw;
+  padding-left: 2vw;
+  cursor: pointer;
+}
+
+.svgplaceholder .link-container,
+.svgplaceholder .kortbeskrivelse-container {
+  visibility: hidden;
+  color: black;
+  z-index: 1;
+}
+
+.svgplaceholder:hover .link-container,
+.svgplaceholder:hover .kortbeskrivelse-container {
+  visibility: visible;
+}
+
+.timeline {
+  margin-left: 10vw;
+  background: rgba(255, 255, 255, 0.63);
+  width: 80%;
+}
+
+.title-container {
+  margin-left: -2vw;
+}
+.kortbeskrivelse-container {
+  margin-right: 4vw;
+}
+
+.cls-5,
+.cls-6 {
+  position: absolute;
+  cursor: pointer;
+}
+
+.cls-6,
+.cls-5 {
+  animation: pulse 3s ease infinite alternate,
+    nudge 3s linear infinite alternate;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(-20px, 0);
+  }
+}
+
+@keyframes nudge {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.pulse {
+  animation-name: pulse;
+}
+
+/*------- single ------- */
+
+#single button.knap {
+  background-color: white;
+  border-radius: 4px;
+  display: inline-block;
+  font: inherit;
+  line-height: 1.5em;
+  padding: 0.5em 3.5em 0.5em 1em;
+  margin: 0;
+  box-sizing: border-box;
+  cursor: pointer;
+  background-position: calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px), calc(100% - 2.5em) 0.5em;
+  background-size: 5px 5px, 5px 5px, 1px 1.5em;
+  background-repeat: no-repeat;
+}
+
+#single #content {
+  grid-template-areas: "mainside mainside" "aside aside";
+}
+#single {
+  margin-top: 2vw;
+  margin-left: 4%;
+  margin-right: 4%;
+}
+
+#single img {
+  width: 95%;
+}
+
+#single .left {
+  float: left;
+  width: 50%;
+}
+
+#single .right {
+  float: right;
+  width: 50%;
+}
+#single .langbeskrivelse-container {
+  margin-top: 6.5vw;
+  background: rgba(255, 255, 255, 0.63);
+  float: right;
+  padding: 2vw;
+  width: 43%;
+}
+
+#single .link-container {
+  background: rgba(255, 255, 255, 0.63);
+  float: right;
+  padding-bottom: 3vw;
+  padding-left: 4vw;
+  width: 43%;
+}
+
+#single a:link,
+a:visited {
+  background-color: white;
+  color: darkblue;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+}
+
+#single a:hover,
+a:active {
+  background-color: red;
+}
+
+@media only screen and (max-width: 1300px) {
+  h1 {
+    font-size: 2em;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  h1 {
+    font-size: 1.5em;
+  }
+}
+
+@media only screen and (max-width: 850px) {
+  h1 {
+    font-size: 1em;
+  }
+}
+
+@media only screen and (max-width: 550px) {
+  h1 {
+    font-size: 0.5em;
+  }
+}
